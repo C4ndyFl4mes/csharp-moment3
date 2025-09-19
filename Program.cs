@@ -12,19 +12,17 @@ class Program
         bool isRunning = true; // Programmet är på.
         Menu menu = new(); // Initierar Menyn.
         PostList postList = new();
-        postList.Add(("Isaac", "Hej!"));
-        postList.Add(("Karl", "Hello!"));
 
         do
         {
             menu.Write(); // Skriver ut / uppdaterar Menyn.
             postList.Write(); // Skriver ut alla poster.
             Console.WriteLine("Välj ett menyalternativ!"); // Ett förtydligande meddelande om vad som försegår.
-            char keyPressed = menu.PressKey();
+            ConsoleKey keyPressed = menu.PressKey();
 
             // När x trycks ned när användaren befinner sig i att välja alternativ stängs applikationen.
             // Båda menu.Selected kan endast nås efter att ett menyalternativ har fokus. 
-            if (keyPressed == 'x')
+            if (keyPressed == ConsoleKey.X)
             {
                 isRunning = false;
             }
@@ -42,15 +40,15 @@ class Program
                 {
                     Console.Write("Namn: ");
                     nameInput = Console.ReadLine();
-                } while (nameInput == null || nameInput == string.Empty);
+                } while (string.IsNullOrWhiteSpace(nameInput));
 
                 do
                 {
                     Console.Write("Meddelande: ");
                     messageInput = Console.ReadLine();
-                } while (messageInput == null || messageInput == string.Empty);
+                } while (string.IsNullOrWhiteSpace(messageInput));
 
-                postList.Add((nameInput, messageInput)); // Lägger till en post.
+                postList.Add(new Post { Name = nameInput.Trim(), Message = messageInput.Trim() }); // Lägger till en post.
             }
             else if (menu.Selected == 1) // Tangent '2' efter fokus och enter.
             {

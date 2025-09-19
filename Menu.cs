@@ -1,4 +1,3 @@
-
 //  Koden är skriven av Isaac Svedin 2025-09-18.
 
 class Menu
@@ -45,11 +44,11 @@ class Menu
     }
 
     // Tar emot tangentknappar. Först sker ett fokus första gången PressKey() kallas, nästa gång den kallas kan enter klickas eller ett annat menyalternativ väljas.
-    public char PressKey()
+    public ConsoleKey PressKey()
     {
         ConsoleKeyInfo keyInfo = Console.ReadKey(true);
         Console.Clear();
-        char keyPressed = keyInfo.KeyChar;
+        ConsoleKey keyPressed = keyInfo.Key;
         if (keyInfo.KeyChar == '1')
         {
             Focused = 0;
@@ -75,7 +74,7 @@ class Menu
         }
         else
         {
-            Console.WriteLine($"Knapp {keyPressed} har ingen funktion!"); // Ett felmeddelande.
+            Console.WriteLine($"Knapp {keyInfo.Key} har ingen funktion!"); // Ett felmeddelande.
         }
 
         return keyPressed;
