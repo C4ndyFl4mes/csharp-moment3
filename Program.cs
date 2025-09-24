@@ -54,7 +54,7 @@ class Program
             {
                 menu.Write(); // Skriver ut / uppdaterar Menyn.
                 postList.Write(); // Skriver ut alla poster.
-                Console.WriteLine("Radera ett inlägg!"); // Ett förtydligande meddelande om vad som försegår.
+                Console.WriteLine("Välj ett inlägg att radera!"); // Ett förtydligande meddelande om vad som försegår.
 
                 string? input = Console.ReadLine();
 

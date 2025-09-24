@@ -11,6 +11,7 @@ class PostList
     {
         _Posts.Add(post);
         SaveToFile(); // Sparar till fil.
+        Console.Clear();
     }
 
     // Raderar en post. Ser till att posten existerar innan radering.
